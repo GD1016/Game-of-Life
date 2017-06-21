@@ -32,3 +32,9 @@ sysinfo.txt
 # Builds
 *.apk
 *.unitypackage
+
+# directory
+obj/
+Library/
+Temp/
+.vs/
