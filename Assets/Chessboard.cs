@@ -1,10 +1,9 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Chessboard : MonoBehaviour {
 
-    public int size = 10;
     public int field_x_variable = 10;
     public int field_y_variable = 10;
 
@@ -21,13 +20,14 @@ public class Chessboard : MonoBehaviour {
                 GameObject tile = GameObject.CreatePrimitive(PrimitiveType.Quad);
                 tile.transform.position = new Vector2(i + 0.5f, j + 0.5f);
                 tile.transform.parent = this.transform;
-                //tile.name = ("Kachel (" + (i + 1) + "," + (j + 1) + ")");
-                tile.name = string.Format("Kachel ({0},{1})", i + 1, j + 1);
+                tile.name = string.Format("Kachel ({0},{1})", i, j);
                 grid[i, j] = tile;
 
                 int random = Random.Range(0, 10);
                 if (random >= 5) {
                     tile.GetComponent<Renderer>().material.color = Color.blue;
+                } else {
+                    tile.GetComponent<Renderer>().material.color = Color.white;
                 }
             }
         }
@@ -36,11 +36,40 @@ public class Chessboard : MonoBehaviour {
         Camera.main.transform.position = new Vector3(camsize, camsize, -10);
         Camera.main.orthographicSize = camsize;
 
-        //grid[3, 3].GetComponent<Renderer>().material.color = Color.blue;
+        Debug.Log("Alive Neighbours: " + GetAliveNeighbours(5, 5));
     }
 
     // Update is called once per frame
     void Update() {
 
+    }
+
+    private int GetAliveNeighbours(int col, int row) {
+        int aliveNeighbours = 0;
+        if (col - 1 >= 0 && grid[col - 1, row].GetComponent<Renderer>().material.color == Color.blue) {
+            aliveNeighbours++;
+        }
+        if (col + 1 < field_x_variable && grid[col + 1, row].GetComponent<Renderer>().material.color == Color.blue) {
+            aliveNeighbours++;
+        }
+        if (row + 1 < field_y_variable && grid[col, row + 1].GetComponent<Renderer>().material.color == Color.blue) {
+            aliveNeighbours++;
+        }
+        if (row - 1 >= 0 && grid[col, row - 1].GetComponent<Renderer>().material.color == Color.blue) {
+            aliveNeighbours++;
+        }
+        if (col - 1 >= 0 && row + 1 < field_y_variable && grid[col - 1, row + 1].GetComponent<Renderer>().material.color == Color.blue) {
+            aliveNeighbours++;
+        }
+        if (col + 1 < field_x_variable && row + 1 < field_y_variable && grid[col + 1, row + 1].GetComponent<Renderer>().material.color == Color.blue) {
+            aliveNeighbours++;
+        }
+        if (col - 1 >= 0 && row - 1 >= 0 && grid[col - 1, row - 1].GetComponent<Renderer>().material.color == Color.blue) {
+            aliveNeighbours++;
+        }
+        if (col + 1 < field_x_variable && row - 1 >= 0 && grid[col + 1, row - 1].GetComponent<Renderer>().material.color == Color.blue) {
+            aliveNeighbours++;
+        }
+        return aliveNeighbours;
     }
 }
