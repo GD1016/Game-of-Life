@@ -76,7 +76,6 @@ public class Chessboard : MonoBehaviour {
     private int GetAliveNeighbours(int col, int row) {
 
         int aliveNeighbours = 0;
-
         int searchradius = 1;
 
         for (int i = col - searchradius; i <= col + searchradius; i++) {
