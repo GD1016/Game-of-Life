@@ -1,11 +1,11 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Chessboard : MonoBehaviour {
 
-    public int field_x_variable = 10;
-    public int field_y_variable = 10;
+    public int field_x_variable = 20;
+    public int field_y_variable = 20;
 
     GameObject[,] grid;
 
@@ -26,9 +26,10 @@ public class Chessboard : MonoBehaviour {
                 int random = Random.Range(0, 10);
                 if (random >= 5) {
                     tile.GetComponent<Renderer>().material.color = Color.blue;
-                } else {
-                    tile.GetComponent<Renderer>().material.color = Color.white;
                 }
+                //else {
+                //    tile.GetComponent<Renderer>().material.color = Color.white;
+                //}
             }
         }
 
@@ -36,12 +37,31 @@ public class Chessboard : MonoBehaviour {
         Camera.main.transform.position = new Vector3(camsize, camsize, -10);
         Camera.main.orthographicSize = camsize;
 
-        Debug.Log("Alive Neighbours: " + GetAliveNeighbours(5, 5));
+        //Debug.Log("Alive Neighbours: " + GetAliveNeighbours(5, 5));
     }
 
     // Update is called once per frame
     void Update() {
+        if (Input.GetKeyDown(KeyCode.Space) == false) {
+            return; 
+        }
+        for (int col = 0; col < field_y_variable; col++) {
+            for (int row = 0; row < field_x_variable; row++) {
+                int aliveNeighbours = GetAliveNeighbours(col, row);
 
+                if (grid[col, row].GetComponent<Renderer>().material.color == Color.white) {
+                    if (aliveNeighbours == 3) {
+                        grid[col, row].GetComponent<Renderer>().material.color = Color.blue;
+                        print("Eine Zelle lebt wieder.");
+                    }
+                } else {
+                    if (aliveNeighbours < 2 || aliveNeighbours > 3) {
+                        grid[col, row].GetComponent<Renderer>().material.color = Color.white;
+                        print("Eine Zelle stirbt.");
+                    }
+                }
+            }
+        }
     }
 
     private int GetAliveNeighbours(int col, int row) {
