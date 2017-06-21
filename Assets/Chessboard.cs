@@ -48,7 +48,7 @@ public class Chessboard : MonoBehaviour {
         int[,] aliveCells = new int[field_x_variable, field_y_variable];
         for (int col = 0; col < field_y_variable; col++) {
             for (int row = 0; row < field_x_variable; row++) {
-                aliveCells[col, row] = GetAliveNeighbours(col,row);
+                aliveCells[col, row] = GetAliveNeighbours(col, row);
             }
         }
 
@@ -74,31 +74,49 @@ public class Chessboard : MonoBehaviour {
     }
 
     private int GetAliveNeighbours(int col, int row) {
+
         int aliveNeighbours = 0;
-        if (col - 1 >= 0 && grid[col - 1, row].GetComponent<Renderer>().material.color == Color.blue) {
-            aliveNeighbours++;
+
+        int searchradius = 1;
+
+        for (int i = col - searchradius; i <= col + searchradius; i++) {
+            for (int j = row - searchradius; j <= row + searchradius; j++) {
+                if (i >= 0 && j >= 0 && i < field_x_variable && j < field_y_variable) {
+                    if (!(i == col && j == row)) {
+                        if (grid[i,j].GetComponent<Renderer>().material.color == Color.blue) {
+                            aliveNeighbours++;
+                        }
+                    }
+                }
+            }
         }
-        if (col + 1 < field_x_variable && grid[col + 1, row].GetComponent<Renderer>().material.color == Color.blue) {
-            aliveNeighbours++;
-        }
-        if (row + 1 < field_y_variable && grid[col, row + 1].GetComponent<Renderer>().material.color == Color.blue) {
-            aliveNeighbours++;
-        }
-        if (row - 1 >= 0 && grid[col, row - 1].GetComponent<Renderer>().material.color == Color.blue) {
-            aliveNeighbours++;
-        }
-        if (col - 1 >= 0 && row + 1 < field_y_variable && grid[col - 1, row + 1].GetComponent<Renderer>().material.color == Color.blue) {
-            aliveNeighbours++;
-        }
-        if (col + 1 < field_x_variable && row + 1 < field_y_variable && grid[col + 1, row + 1].GetComponent<Renderer>().material.color == Color.blue) {
-            aliveNeighbours++;
-        }
-        if (col - 1 >= 0 && row - 1 >= 0 && grid[col - 1, row - 1].GetComponent<Renderer>().material.color == Color.blue) {
-            aliveNeighbours++;
-        }
-        if (col + 1 < field_x_variable && row - 1 >= 0 && grid[col + 1, row - 1].GetComponent<Renderer>().material.color == Color.blue) {
-            aliveNeighbours++;
-        }
+
         return aliveNeighbours;
+
+        //Old Version. See new ^
+        //if (col - 1 >= 0 && grid[col - 1, row].GetComponent<Renderer>().material.color == Color.blue) {
+        //    aliveNeighbours++;
+        //}
+        //if (col + 1 < field_x_variable && grid[col + 1, row].GetComponent<Renderer>().material.color == Color.blue) {
+        //    aliveNeighbours++;
+        //}
+        //if (row + 1 < field_y_variable && grid[col, row + 1].GetComponent<Renderer>().material.color == Color.blue) {
+        //    aliveNeighbours++;
+        //}
+        //if (row - 1 >= 0 && grid[col, row - 1].GetComponent<Renderer>().material.color == Color.blue) {
+        //    aliveNeighbours++;
+        //}
+        //if (col - 1 >= 0 && row + 1 < field_y_variable && grid[col - 1, row + 1].GetComponent<Renderer>().material.color == Color.blue) {
+        //    aliveNeighbours++;
+        //}
+        //if (col + 1 < field_x_variable && row + 1 < field_y_variable && grid[col + 1, row + 1].GetComponent<Renderer>().material.color == Color.blue) {
+        //    aliveNeighbours++;
+        //}
+        //if (col - 1 >= 0 && row - 1 >= 0 && grid[col - 1, row - 1].GetComponent<Renderer>().material.color == Color.blue) {
+        //    aliveNeighbours++;
+        //}
+        //if (col + 1 < field_x_variable && row - 1 >= 0 && grid[col + 1, row - 1].GetComponent<Renderer>().material.color == Color.blue) {
+        //    aliveNeighbours++;
+        //}
     }
 }
