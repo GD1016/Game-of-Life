@@ -9,7 +9,6 @@ public class Chessboard : MonoBehaviour {
 
     GameObject[,] grid;
 
-
     // Use this for initialization
     void Start() {
 
@@ -43,11 +42,21 @@ public class Chessboard : MonoBehaviour {
     // Update is called once per frame
     void Update() {
         if (Input.GetKeyDown(KeyCode.Space) == false) {
-            return; 
+            //return;
         }
+
+        int[,] aliveCells = new int[field_x_variable, field_y_variable];
         for (int col = 0; col < field_y_variable; col++) {
             for (int row = 0; row < field_x_variable; row++) {
-                int aliveNeighbours = GetAliveNeighbours(col, row);
+                aliveCells[col, row] = GetAliveNeighbours(col,row);
+            }
+        }
+
+
+
+        for (int col = 0; col < field_y_variable; col++) {
+            for (int row = 0; row < field_x_variable; row++) {
+                int aliveNeighbours = aliveCells[col, row];
 
                 if (grid[col, row].GetComponent<Renderer>().material.color == Color.white) {
                     if (aliveNeighbours == 3) {
