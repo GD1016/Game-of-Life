@@ -20,7 +20,7 @@ MonoBehaviour:
   m_ShowMode: 4
   m_Title: 
   m_RootView: {fileID: 2}
-  m_MinSize: {x: 950, y: 371}
+  m_MinSize: {x: 950, y: 392}
   m_MaxSize: {x: 10000, y: 10000}
 --- !u!114 &2
 MonoBehaviour:
@@ -43,7 +43,7 @@ MonoBehaviour:
     y: 0
     width: 1920
     height: 997
-  m_MinSize: {x: 950, y: 371}
+  m_MinSize: {x: 950, y: 392}
   m_MaxSize: {x: 10000, y: 10000}
 --- !u!114 &3
 MonoBehaviour:
@@ -106,8 +106,8 @@ MonoBehaviour:
     y: 30
     width: 1920
     height: 947
-  m_MinSize: {x: 502, y: 321}
-  m_MaxSize: {x: 12002, y: 8021}
+  m_MinSize: {x: 508, y: 342}
+  m_MaxSize: {x: 12008, y: 8042}
   vertical: 0
   controlID: 104
 --- !u!114 &6
@@ -130,8 +130,8 @@ MonoBehaviour:
     y: 0
     width: 1531
     height: 947
-  m_MinSize: {x: 402, y: 321}
-  m_MaxSize: {x: 8002, y: 8021}
+  m_MinSize: {x: 406, y: 342}
+  m_MaxSize: {x: 8006, y: 8042}
   vertical: 1
   controlID: 45
 --- !u!114 &7
@@ -154,8 +154,8 @@ MonoBehaviour:
     y: 0
     width: 1531
     height: 596
-  m_MinSize: {x: 402, y: 221}
-  m_MaxSize: {x: 8002, y: 4021}
+  m_MinSize: {x: 406, y: 221}
+  m_MaxSize: {x: 8006, y: 4021}
   vertical: 0
   controlID: 46
 --- !u!114 &8
@@ -201,8 +201,8 @@ MonoBehaviour:
     y: 0
     width: 1152
     height: 596
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 204, y: 221}
+  m_MaxSize: {x: 4004, y: 4021}
   m_ActualView: {fileID: 12}
   m_Panes:
   - {fileID: 14}
@@ -228,8 +228,8 @@ MonoBehaviour:
     y: 596
     width: 1531
     height: 351
-  m_MinSize: {x: 100, y: 100}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 102, y: 121}
+  m_MaxSize: {x: 4002, y: 4021}
   m_ActualView: {fileID: 17}
   m_Panes:
   - {fileID: 16}
@@ -254,8 +254,8 @@ MonoBehaviour:
     y: 0
     width: 389
     height: 947
-  m_MinSize: {x: 100, y: 100}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 102, y: 121}
+  m_MaxSize: {x: 4002, y: 4021}
   m_ActualView: {fileID: 20}
   m_Panes:
   - {fileID: 18}
@@ -367,8 +367,8 @@ MonoBehaviour:
     height: 575
   m_TreeViewState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: bc250000
-    m_LastClickedID: 9660
+    m_SelectedIDs: 
+    m_LastClickedID: 0
     m_ExpandedIDs: e2fbffff00000000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -541,7 +541,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: e2240000
     m_LastClickedID: 9442
-    m_ExpandedIDs: 00000000e224000000ca9a3bffffff7f
+    m_ExpandedIDs: 00000000e2240000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -752,20 +752,12 @@ MonoBehaviour:
       Label: 
   changesTab:
     commitBody: 
-    commitMessage: Improved GetAliveNeighbours Function
+    commitMessage: 
     currentBranch: master
     horizontalScroll: {x: 0, y: 0}
     tree:
       entries: []
-      entryCommitTargets:
-      - All: 0
-      - All: 0
-      - All: 0
-      - All: 0
-      - All: 0
-      - All: 0
-      - All: 0
-      - All: 0
+      entryCommitTargets: []
       foldedTreeEntries: []
   historyTab:
     detailsScroll: {x: 0, y: 0}
@@ -779,6 +771,26 @@ MonoBehaviour:
       - All: 0
       foldedTreeEntries: []
     history:
+    - CommitID: 48aa890aab35fb9361dc7b9788b4ea2d5060923b
+      MergeA: 
+      MergeB: 
+      AuthorName: Code Fox
+      AuthorEmail: development@chojo.de
+      CommitEmail: development@chojo.de
+      CommitName: Code Fox
+      Summary: minor changes
+      Description: minor changes
+      Changes: []
+    - CommitID: f06ca9e14f85f9ae3fdfb9758a2a3579b92a2e36
+      MergeA: 
+      MergeB: 
+      AuthorName: Code Fox
+      AuthorEmail: development@chojo.de
+      CommitEmail: development@chojo.de
+      CommitName: Code Fox
+      Summary: Improved GetAliveNeighbours Function
+      Description: Improved GetAliveNeighbours Function
+      Changes: []
     - CommitID: e62b572c19ce9704a36b0e6d545c6f4e2271fbf0
       MergeA: 
       MergeB: 
